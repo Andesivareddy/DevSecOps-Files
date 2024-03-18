@@ -1,0 +1,33 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest 
+ #  name: Sonarqube (name of the pool) 
+
+
+
+# Search for the SonarCloud template and select build task for which Language we need to prepare the analysis
+
+#Preparation Sonar Analysis Configuration
+steps:
+- task: SonarCloudPrepare
+  inputs: 
+          Sonarqube: "SonarCloud"  # Mention Service Connection Name
+          scannerMode: 'CLI'
+          configMode: 'manual'
+          cliProjectKey: 'Project_Name'  #Project Name
+          cliSources: '.'
+
+- task: SonarCloud Analyze
+  inputs: 
+          jdkversion: 'JAVA_HOME_17_X64' # For Java Based Applications
+
+- task: SonarCloud Publish Quality Gates
+  displayName: Publish Quality Gates Result    
+  inputs:
+          pollingTimeoutSec: '300'
+          enabled: false
+                          
+
+
