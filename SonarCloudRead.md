@@ -37,3 +37,22 @@ jobs:
       echo "SonarCloud analysis status is $quality_status"; 
       if [[ $quality_status == "ERROR" ]] ; then exit 1;fi
     displayName: "Integrate SAST using SonarCloud to populate code coverage in Azure DevOps DevSecOps Pipeline"
+
+    -----------Sample JSON Response from SonarCloud or SonarQube Quality Gate API---------------------
+
+{
+	"projectStatus": {
+		"status": "ERROR",
+		"conditions": [
+			{
+				"status": "ERROR",
+				"metricKey": "coverage",
+				"comparator": "LT",
+				"errorThreshold": "90",
+				"actualValue": "0.0"
+			}
+		],
+		"periods": [],
+		"ignoredConditions": false
+	}
+}
