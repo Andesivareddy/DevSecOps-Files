@@ -6,7 +6,7 @@ pool:
 
 steps:
 - script: |
-      wget https://github.com/zaproxy/zaproxy/releases/download/v2.11.1/ZAP_2.11.1_Linux.tar.gz
+      wget https://github.com/zaproxy/zaproxy/releases/download/v2.14.0/ZAP_2.14.0_Linux.tar.gz
       mkdir zap
       tar -xvf ZAP_2.11.1_Linux.tar.gz
       cd ZAP_2.11.1
@@ -17,3 +17,7 @@ steps:
   inputs:
     pathToPublish: '$(Build.ArtifactStagingDirectory)'
     artifactName: zap_report.html
+
+    #https://github.com/zaproxy/zaproxy/releases/download/v2.14.0/ZAP_2_14_0_unix.sh
+
+    
