@@ -56,3 +56,27 @@ jobs:
 		"ignoredConditions": false
 	}
 }
+
+
+
+Using Variable Groups
+
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+- group: "SECURE_TOKENS"
+- name: sonar_token
+  value: $[variables.SONARTOKEN]
+
+jobs:
+- job: Sonar_SAST_Scan_Job
+  container: maven:3.8.1-openjdk-17-slim
+  steps:
+  - script: |
+      mvn verify package sonar:sonar -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.organization=azuredevopsdevsecopsoorg -Dsonar.projectKey=azuredevsecopsoprojectkey -Dsonar.token=$(sonar_token)
+    displayName: "Integrate SAST using SonarCloud to populate code coverage and secure pipeline variable in Azure DevOps DevSecOps Pipeline"

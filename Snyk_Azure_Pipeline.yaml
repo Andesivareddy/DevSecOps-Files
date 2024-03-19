@@ -9,9 +9,15 @@ variables:
 - name: snyk_token  # Create a Token in Synk Portal
   value: $[variables.SNYKTOKEN]
 
+
+# Creating Environmental Variable by using Export Linux Command because snyk accepts only Capital Letters and it's 
+# as own environmental variable
+
+# -fn just for our demonstrates purpose build won't fail by using -fn but in real time no need to mention
+
 steps:
 - script: |
     SNYK_TOKEN=$(snyk_token)
-    export SNYK_TOKEN
+    export SNYK_TOKEN   
     mvn snyk:test -fn 
   displayName: "Integrate SCA scan using Snyk in ADO DevSecOps Pipeline"
