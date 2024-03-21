@@ -30,11 +30,11 @@ steps:
           enabled: false
 
 #(OR)
- trigger:
-- master
+ #trigger:
+#- master
 
-pool:
-  vmImage: ubuntu-latest
+#pool:
+  #vmImage: ubuntu-latest
 
 jobs:
 - job: Sonar_SAST_Scan_Job
