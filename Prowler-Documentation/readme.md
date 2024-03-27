@@ -136,6 +136,7 @@ sudo apt update
 sudo apt install python3.9-venv python3.9-distutils
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python3.9 get-pip.py
+pip install testresources
 pip3.9 --version  # OR pip --version
 Install CFFI:
 pip3.9 install cffi
