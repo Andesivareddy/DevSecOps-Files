@@ -3,10 +3,15 @@
 3) Add script in azure-pipeline.yaml file to enable quality gate check (Note: This will fail your build in case Quality Gate fails)
 
 sleep 5
+
 sudo apt update
+
 sudo apt install curl jq 
+
 quality_status=$(curl -s -u 14ad4797c02810a818f21384add02744d3f9e34d: https://sonarcloud.io/api/qualitygates/project_status?projectKey=azuredevopsadodevsecopsprojectkey | jq -r '.projectStatus.status')
+
 echo "SonarCloud Analysis Status is $quality_status"; 
+
 if [[ $quality_status == "ERROR" ]] ; then exit 1;fi
 
 
