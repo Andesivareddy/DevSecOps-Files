@@ -21,6 +21,7 @@ variables:
 
 # Adding SYNK Plugin to Maven.
 
+---
 <plugin>
   <groupId>io.snyk</groupId>
   <artifactId>snyk-maven-plugin</artifactId>
@@ -42,7 +43,7 @@ variables:
     <failOnIssues>false</failOnIssues>
   </configuration>
 </plugin>
-
+----
 
 steps:
 - script: |
